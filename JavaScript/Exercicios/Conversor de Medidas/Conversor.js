@@ -35,7 +35,8 @@ switch (unidMedida){
         break
         
     default:
-        alert("Opção Inválida")    
+        alert("Opção Inválida")
+        break    
     
             
 
