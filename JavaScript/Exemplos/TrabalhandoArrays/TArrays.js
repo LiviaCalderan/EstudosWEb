@@ -30,8 +30,8 @@ const inclui = arr.includes ("Draco")
 console.log(inclui) //vai me dar um resultado true or false; no caso true
 
 // indexOf: Encontra o índice (posição) que possui o elemento indicado, ou -1 caso ele não exista no array
-const indice = arr.indexOf("Hermione")
-console.log(indice) //me informará que está na posição 2; lembrado que começa no 0
+const indice = arr.indexOf("luna")
+console.log(indice) //me informará que está na posição 5; lembrado que começa no 0
 
 
 //cortando e concatenando
@@ -44,4 +44,25 @@ console.log(arr)
 console.log(outros)//irá me devolver apartir do 'Neville', pois contando ao contrário ele é o 4
 console.log(professores) //irá me devolver 'Dumbledore' e 'Minerva'
 
-//concat ()
+//concat (junta dois ou mais arrays e/ou itens e devolve o resultado sem alterar nenhum dos arrays)
+const amigos = professores.concat(outros, "Hagrid")
+console.log(amigos)
+console.log(professores)
+console.log(outros)
+
+
+//substituindo elementos
+//splice (permite remover elementos em qualquer posição do array e substituir por novos)
+const a = amigos.splice(2, 1, "Harry, o menino que sobreviveu")
+//encontra o indice, quantos exclui apartir dele, e substitui pelo elemento colocado
+console.log(a) //devolve uma lista de elementos devolvidos, no caso,['neville']
+console.log(amigos)
+
+
+//Iterando sobre os elementos
+//Usando o for para percorrer elementos do array
+for (let indice = 0; indice < amigos.length; indice++){
+    const elemento = amigos[indice]//a cada repetição o indice será uma posição do array
+    console.log (elemento + " se encontra na posição: " + indice)
+}
+
