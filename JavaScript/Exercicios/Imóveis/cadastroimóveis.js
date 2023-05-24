@@ -1,14 +1,10 @@
 let opcao = ""
-const imoveisCadastrados = []
-let proprietario = ""
-let quartos = ""
-let banheiros = ""
-let garagem = ""
+let imoveisArray = []
 
 do{
-    if (imoveisCadastrados.length > 0) {
+    if (imoveisArray.length > 0) {
         opcao = prompt(
-            "Quantidade de imóveis cadastrados: " + imoveisCadastrados.length +
+            "Quantidade de imóveis cadastrados: " + imoveisArray.length +
             "\n\n Insira a opção que desejar:" +
             "\n\n1 - Salvar um imóvel" +
             "\n2 - Ver imóveis salvos" +
@@ -24,20 +20,41 @@ do{
         )    
     }
 
-    if (opcao == "1"){
-        imovelSalvo = prompt("Insira um nome para o imóvel:")
-        imoveisCadastrados.unshift (imovelSalvo)
+    switch(opcao){
 
-    } else if (opcao == "2"){
+        case "1":
+            const imoveis = {}
+            imoveis.proprietario = prompt("Nome do proprietario:")
+            imoveis.quartos = prompt("Quantidade de quartos:")
+            imoveis.banheiros = prompt("Quantidade de banheiros:")
+            imoveis.garagem = prompt("Possui garagem? sim/nao")
+            imoveisArray.push(imoveis)
 
+            break
 
-    }else if (opcao == "3") {
-        alert("Finalizando...")
+        case "2":
+            if(imoveisArray.length == 0){
+                alert("Não há imoveis cadastrados!")
+            } else {
+                imoveisArray.forEach((imovel, index) => {
+                    console.log(`Imóvel ${index + 1}`);
+                    console.log(`Proprietário: ${imovel.proprietario}`);
+                    console.log(`Quartos: ${imovel.quartos}`);
+                    console.log(`Banheiros: ${imovel.banheiros}`);
+                    console.log(`Garagem: ${imovel.garagem ? "Sim" : "Não"}`);
+                    console.log("------------------------");
+                  });
+                
+            }
+            break
 
-    }else {
-        alert("Insira uma opção válida!")
+        case "3":
+            alert("Finalizando...")
+            break
+
+        default:
+            alert("Insira uma opção válida!")
+
     }
 
-        
-
-    } while (opcao !=="3")
+    } while (opcao != "3")
